@@ -7,7 +7,7 @@
     background-position: center;
     background-color: #000000;
     margin-left: auto;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .profile__add-button:hover {
