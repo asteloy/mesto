@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+</head>
+
+<body class="body">
+    <div class="wrapper">
+        <header class="header">
+            <img src="./images/header_logo.png" alt="Место" class="header__logo">
+        </header>
+        <section class="profile" aria-label="Профиль">
+            <img src="./images/profile_pik.jpg" alt="Профиль" class="profile__pik">
+            <div class="profile__info">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button class="profile__edit-button"></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button"></button>
+        </section>
+        <section class="elements" aria-label="Элементы">
+            <ul class="elements__list">
+                <li class="elements__list-item">
+                    <img src="./images/img1.jpg" alt="Карачевск" class="elements__list-img">
+                    <div class="elements__list-description">
+                        <h2 class="elements__list-title">Карачаевск</h2>
+                        <button class="elements__list-button"></button>
+                    </div>
+                </li>
+                <li class="elements__list-item">
+                    <img src="./images/img2.jpg" alt="Эльбрус" class="elements__list-img">
+                    <div class="elements__list-description">
+                        <h2 class="elements__list-title">Гора Эльбрус</h2>
+                        <button class="elements__list-button"></button>
+                    </div>
+                </li>
+                <li class="elements__list-item">
+                    <img src="./images/img3.jpg" alt="Домбай" class="elements__list-img">
+                    <div class="elements__list-description">
+                        <h2 class="elements__list-title">Домбай</h2>
+                        <button class="elements__list-button"></button>
+                    </div>
+                </li>
+                <li class="elements__list-item">
+                    <img src="./images/img2.jpg" alt="Эльбрус" class="elements__list-img">
+                    <div class="elements__list-description">
+                        <h2 class="elements__list-title">Гора Эльбрус</h2>
+                        <button class="elements__list-button"></button>
+                    </div>
+                </li>
+                <li class="elements__list-item">
+                    <img src="./images/img3.jpg" alt="Домбай" class="elements__list-img">
+                    <div class="elements__list-description">
+                        <h2 class="elements__list-title">Домбай</h2>
+                        <button class="elements__list-button"> </button>
+                    </div>
+                </li>
+                <li class="elements__list-item">
+                    <img src="./images/img1.jpg" alt="Карачевск" class="elements__list-img">
+                    <div class="elements__list-description">
+                        <h2 class="elements__list-title">Карачаево-Черкессия</h2>
+                        <button class="elements__list-button"> </button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <p class="footer__text">© 2020 Mesto Russia</p>
+        </footer>
+    </div>
+    <div class="popup">
+        <form class="popup__container">
+            <button type="button" class="popup__close-button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input type="text" class="popup__input popup__input_name">
+            <input type="text" class="popup__input popup__input_job">
+            <button type="submit" class="popup__save-button">
+                Сохранить
+            </button>
+        </form>
+    </div>
+    <script src="./script/index.js"></script>
+</body>
+
+</html>

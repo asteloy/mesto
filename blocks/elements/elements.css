@@ -1,0 +1,10 @@
+.elements {
+    margin-top: 31px;
+
+}
+
+@media screen and (max-width: 720px) {
+    .elements {
+        margin-top: 16px;
+    }
+}

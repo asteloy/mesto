@@ -1,0 +1,6 @@
+.elements__list-item {
+    list-style: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
