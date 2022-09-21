@@ -1,9 +1,18 @@
 .profile__info {
+    margin: 0;
     max-width: 336px;
+    display: grid;
+    grid-template-areas:
+        "profile__title profile_edit"
+        "profile__subtitle profile__subtitle";
+    grid-template-columns: 294px 42px;
+    grid-template-rows: 70px 1fr;
 }
 
 @media screen and (max-width: 720px) {
     .profile__info {
         margin: 0 auto;
+        grid-template-columns: 189px 28px;
+        grid-template-rows: 50.25px 28px;
     }
 }
