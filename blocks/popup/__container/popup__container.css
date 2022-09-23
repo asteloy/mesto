@@ -1,23 +1,19 @@
 .popup__container {
     margin: 0;
     padding: 34px 36px 37px 36px;
-    width: 358px;
-    height: 259px;
     display: grid;
     grid-template-areas:
         "popup_title"
         "popup_input"
         "popup_button";
     grid-template-columns: 358px;
-    grid-template-rows: 48px 1fr 50px;
+    grid-template-rows: 48px 1fr 98px;
 }
 
 @media screen and (max-width: 540px) {
     .popup__container {
         padding: 25px 22px 25px 22px;
-        width: 238px;
-        height: 272px;
         grid-template-columns: 238px;
-        grid-template-rows: 67px 1fr 46px;
+        grid-template-rows: 67px 1fr 91px;
     }
 }

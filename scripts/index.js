@@ -38,11 +38,11 @@ function checkPopupState() {
 function popupShow() {
         nameInput.value = profileTitle.textContent;
         jobInput.value = profileSubtitle.textContent;
-        bodyElement.style.overflow = 'hidden';
+        bodyElement.classList.add('body__style_overflow_hidden');
 }
 
 function popupClose() {
-    bodyElement.style.overflow = 'visible';
+    bodyElement.classList.remove('body__style_overflow_hidden');
 }
 
 

@@ -1,5 +1,7 @@
 .elements__list-img {
     width: 282px;
     aspect-ratio: 1 / 1;
+    min-height: 282px;
+    min-width: 282px;
     border-radius: 10px 10px 0 0;
 }
