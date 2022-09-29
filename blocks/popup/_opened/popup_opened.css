@@ -1,4 +1,4 @@
 .popup_opened {
-    display: flex;
-    justify-content: space-around;
+    visibility: visible;
+    opacity: 1;
 }

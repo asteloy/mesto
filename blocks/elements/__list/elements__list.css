@@ -3,18 +3,21 @@
     margin: 0;
     display: flex;
     max-width: 880px;
+    min-width: 880px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 @media screen and (max-width: 920px) {
     .elements__list {
+        min-width: 550px;
         margin: 0 19px 0 19px;
     }
 }
 
 @media screen and (max-width: 600px) {
     .elements__list {
+        min-width: 280px;
         justify-content: center;
     }
 }

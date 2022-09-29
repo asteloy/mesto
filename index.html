@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 
@@ -26,48 +26,6 @@
             </section>
             <section class="elements" aria-label="Элементы">
                 <ul class="elements__list">
-                    <li class="elements__list-item">
-                        <img src="./images/img1.jpg" alt="Карачевск" class="elements__list-img">
-                        <div class="elements__list-description">
-                            <h2 class="elements__list-title">Карачаевск</h2>
-                            <button type="button" class="elements__list-button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__list-item">
-                        <img src="./images/img2.jpg" alt="Эльбрус" class="elements__list-img">
-                        <div class="elements__list-description">
-                            <h2 class="elements__list-title">Гора Эльбрус</h2>
-                            <button type="button" class="elements__list-button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__list-item">
-                        <img src="./images/img3.jpg" alt="Домбай" class="elements__list-img">
-                        <div class="elements__list-description">
-                            <h2 class="elements__list-title">Домбай</h2>
-                            <button type="button" class="elements__list-button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__list-item">
-                        <img src="./images/img2.jpg" alt="Эльбрус" class="elements__list-img">
-                        <div class="elements__list-description">
-                            <h2 class="elements__list-title">Гора Эльбрус</h2>
-                            <button type="button" class="elements__list-button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__list-item">
-                        <img src="./images/img3.jpg" alt="Домбай" class="elements__list-img">
-                        <div class="elements__list-description">
-                            <h2 class="elements__list-title">Домбай</h2>
-                            <button type="button" class="elements__list-button"> </button>
-                        </div>
-                    </li>
-                    <li class="elements__list-item">
-                        <img src="./images/img1.jpg" alt="Карачевск" class="elements__list-img">
-                        <div class="elements__list-description">
-                            <h2 class="elements__list-title">Карачаево-Черкессия</h2>
-                            <button type="button" class="elements__list-button"> </button>
-                        </div>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -75,7 +33,7 @@
             <p class="footer__text">© 2020 Mesto Russia</p>
         </footer>
     </div>
-    <div class="popup">
+    <div class="popup" id="popup_profile">
         <div class="popup__content">
             <form name="profile edit" class="popup__container">
                 <button type="button" class="popup__close-button"></button>
@@ -88,6 +46,28 @@
                     Сохранить
                 </button>
             </form>
+        </div>
+    </div>
+    <div class="popup" id="popup_card">
+        <div class="popup__content">
+            <form name="create card" class="popup__container">
+                <button type="button" class="popup__close-button"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <div class="popup__inputs">
+                    <input type="text" placeholder="Название" class="popup__input popup__input_el_title">
+                    <input type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_el_url">
+                </div>
+                <button type="submit" class="popup__save-button">
+                    Создать
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup_image">
+        <div class="popup__image-content">
+            <div class="popup__image-wrapper" id="popup__container-image">
+                <button type="button" class="popup__close-button"></button>
+            </div>
         </div>
     </div>
     <script defer src="./scripts/index.js"></script>

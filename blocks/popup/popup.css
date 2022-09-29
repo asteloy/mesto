@@ -2,7 +2,11 @@
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
     position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    transition: visibility .6s, opacity .6s;
 }
