@@ -20,60 +20,28 @@ cardAddButton.addEventListener('click', handleOpenPopup);
 formElementProfile.addEventListener('submit', handleFormSubmit);
 formElementCard.addEventListener('submit', handleCardSubmit);
 
-initialCards.forEach(card => addCard(card.name, card.link))
+initialCards.forEach(card => cards.prepend(addCard(card.name, card.link)))
 
 function addCard(cardName, cardImage) {
-    const deleteButtonElement = createDeleteButton();
-    const imageElement = createImageElement(cardName, cardImage);
-    const titleElement = createTitleElement(cardName);
-    const likeButtonElement = createLikeButtonElement();
-    const descriptionElement = createDescriptionElement(titleElement, likeButtonElement);
-    const cardContainer = createCardContainerElement(imageElement, descriptionElement, deleteButtonElement);
-    cards.prepend(cardContainer);
-}
 
-function createCardContainerElement(imageElement, descriptionElement, deleteButtonElement) {
-    const cardContainer = document.createElement('li');
-    cardContainer.classList.add('elements__list-item');
-    cardContainer.append(imageElement, descriptionElement, deleteButtonElement);
-    return cardContainer;
-}
+    const elementTemplate = document.querySelector('#element-template').content;
+    const element = elementTemplate.querySelector('.elements__list-item').cloneNode(true);
+    const image = element.querySelector('.elements__list-img');
+    image.src = cardImage;
+    image.alt = cardName;
+    image.addEventListener('click', handleOpenPopup);
 
-function createImageElement(cardName, cardImage) {
-    const imageElement = document.createElement('img');
-    imageElement.classList.add('elements__list-img');
-    imageElement.src = cardImage;
-    imageElement.addEventListener('click', handleOpenPopup)
-    imageElement.alt = cardName;
-    return imageElement;
-}
+    const title = element.querySelector('.elements__list-title');
+    title.textContent = cardName;
 
-function createTitleElement(cardName) {
-    const titleElement = document.createElement('h3');
-    titleElement.classList.add('elements__list-title');
-    titleElement.textContent = cardName;
-    return titleElement;
-}
-
-function createLikeButtonElement() {
-    const likeButtonElement = document.createElement('button');
-    likeButtonElement.classList.add('elements__list-button');
-    likeButtonElement.addEventListener('click', () => likeButtonElement.classList.toggle('elements__list-button_active'))
-    return likeButtonElement;
-}
-
-function createDescriptionElement(titleElement, likeButtonElement) {
-    const descriptionElement = document.createElement('div');
-    descriptionElement.classList.add('elements__list-description');
-    descriptionElement.append(titleElement, likeButtonElement);
-    return descriptionElement;
-}
-
-function createDeleteButton() {
-    const deleteButtonElement = document.createElement('button');
-    deleteButtonElement.classList.add('elements__list-delete-button');
+    const deleteButtonElement = element.querySelector('.elements__list-delete-button');
     deleteButtonElement.addEventListener('click', () => deleteButtonElement.closest(".elements__list-item").remove());
-    return deleteButtonElement;
+
+    const likeButtonElement = element.querySelector('.elements__list-button');
+    likeButtonElement.addEventListener('click', () => likeButtonElement.classList.toggle('elements__list-button_active'))
+
+    return element
+
 }
 
 function handleClosePopup() {
@@ -95,7 +63,7 @@ function handleOpenPopup() {
         openPopup(formElementCard)
     } else if (this.classList.contains('elements__list-img')) {
         openPopup(formElementImg)
-        createImagePopup(this);
+        formElementImgContainer.append(createImagePopup(this));
     }
 
 }
@@ -111,7 +79,7 @@ function handleCardSubmit(evt) {
     evt.preventDefault();
     const cardName = titleInput.value;
     const cardImage = urlInput.value;
-    addCard(cardName, cardImage)
+    cards.prepend(addCard(cardName, cardImage))
     closePopup(this);
 }
 
@@ -134,14 +102,18 @@ function addInputsValue() {
 }
 
 function createImagePopup(elem) {
-    const imageElement = createImageElement(elem.alt, elem.src);
-    imageElement.classList.add('elements__list-img_state_extended');
-    imageElement.classList.remove('elements__list-img');
 
-    const titleElement = createTitleElement(elem.alt);
-    titleElement.classList.add('popup__img-title');
+    const elementTemplate = document.querySelector('#img-popup-template').content;
+    const element = elementTemplate.querySelector('#popup__wrapper').cloneNode(true);
 
-    formElementImgContainer.append(imageElement, titleElement);
+    const image = element.querySelector('.elements__list-img_state_extended');
+    image.src = elem.src;
+    image.alt = elem.alt;
+
+    const title = element.querySelector('.popup__img-title');
+    title.textContent = elem.alt;
+
+    return element
 }
 
 
