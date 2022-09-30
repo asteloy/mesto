@@ -8,5 +8,5 @@
     display: flex;
     justify-content: space-around;
     opacity: 0;
-    transition: visibility .6s, opacity .6s;
+    transition: visibility .5s, opacity .5s;
 }
