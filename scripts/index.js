@@ -45,12 +45,9 @@ function addCard(cardName, cardImage) {
 }
 
 function handleClosePopup() {
-    if (formElementImg.classList.contains('popup_opened')) {
-        formElementImgContainer.querySelector(".popup__img-title").remove();
-        formElementImgContainer.querySelector(".elements__list-img_state_extended").remove();
-    }
     const popupElem = this.closest(".popup");
     popupElem.classList.remove('popup_opened');
+    if (popupElem.classList.contains("popup__background_theme_dark")) { popupElem.classList.remove("popup__background_theme_dark") }
     bodyElement.classList.remove('body__style_overflow_hidden');
 }
 
@@ -62,8 +59,7 @@ function handleOpenPopup() {
     } else if (this.classList.contains('profile__add-button')) {
         openPopup(formElementCard)
     } else if (this.classList.contains('elements__list-img')) {
-        openPopup(formElementImg)
-        formElementImgContainer.append(createImagePopup(this));
+        openPopup(formElementImg, "popup__background_theme_dark", this)
     }
 
 }
@@ -84,13 +80,23 @@ function handleCardSubmit(evt) {
 }
 
 
-function openPopup(elem) {
-    elem.classList.add('popup_opened');
+function openPopup(popup, props, iventItem) {
+    popup.classList.add('popup_opened');
+    if (props) { popup.classList.add(props) }
+
+    if (popup === formElementImg) {
+        const image = popup.querySelector('.elements__list-img_state_extended');
+        image.src = iventItem.src;
+        image.alt = iventItem.alt;
+        const title = popup.querySelector('.popup__img-title');
+        title.textContent = iventItem.alt;
+    }
     bodyElement.classList.add('body__style_overflow_hidden');
 }
 
-function closePopup(popup) {
+function closePopup(popup, props) {
     popup.classList.remove('popup_opened');
+    if (props) { popup.classList.remove(props) }
     bodyElement.classList.remove('body__style_overflow_hidden');
 }
 
@@ -100,22 +106,5 @@ function addInputsValue() {
         jobInput.value = profileSubtitle.textContent;
     }
 }
-
-function createImagePopup(elem) {
-
-    const elementTemplate = document.querySelector('#img-popup-template').content;
-    const element = elementTemplate.querySelector('#popup__wrapper').cloneNode(true);
-
-    const image = element.querySelector('.elements__list-img_state_extended');
-    image.src = elem.src;
-    image.alt = elem.alt;
-
-    const title = element.querySelector('.popup__img-title');
-    title.textContent = elem.alt;
-
-    return element
-}
-
-
 
 
