@@ -85,7 +85,7 @@ function openPopup(popup, props, iventItem) {
     if (props) { popup.classList.add(props) }
 
     if (popup === formElementImg) {
-        const image = popup.querySelector('.elements__list-img_state_extended');
+        const image = popup.querySelector('.popup__image');
         image.src = iventItem.src;
         image.alt = iventItem.alt;
         const title = popup.querySelector('.popup__img-title');
