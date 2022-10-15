@@ -1,0 +1,14 @@
+.popup__input-label {
+    display: grid;
+    grid-template-areas:
+        "popup_input"
+        "popup_error";
+    grid-template-columns: 358px;
+    grid-template-rows: 28px 30px;
+}
+
+@media screen and (max-width: 540px) {
+    .popup__input-label {
+        grid-template-columns: 238px;
+    }
+}

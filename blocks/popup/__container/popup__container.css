@@ -4,16 +4,16 @@
     display: grid;
     grid-template-areas:
         "popup_title"
-        "popup_input"
+        "popup_inputs"
         "popup_button";
     grid-template-columns: 358px;
-    grid-template-rows: 48px 1fr 98px;
+    grid-template-rows: 78px 1fr 70px;
 }
 
 @media screen and (max-width: 540px) {
     .popup__container {
         padding: 25px 22px 25px 22px;
         grid-template-columns: 238px;
-        grid-template-rows: 67px 1fr 91px;
+        grid-template-rows: 97px 114px 71px;
     }
 }

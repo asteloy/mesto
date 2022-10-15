@@ -10,11 +10,18 @@
     color: #FFFFFF;
     cursor: pointer;
     grid-area: popup_button;
-    margin-top: 48px;
+    margin-top: 20px;
 }
 
 .popup__save-button:hover {
     opacity: 0.8;
+}
+
+.popup__save-button:disabled {
+    background-color: #FFFFFF;
+    opacity: 0.8;
+    border: 1px solid #000000;
+    color: #000000;
 }
 
 
@@ -22,6 +29,6 @@
     .popup__save-button {
         font-size: 14px;
         line-height: 17px;
-        margin-top: 45px;
+        margin-top: 25px;
     }
 }

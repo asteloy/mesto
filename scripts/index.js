@@ -1,3 +1,4 @@
+
 const cards = document.querySelector(".elements__list");
 const formElementCard = document.querySelector("#popup_card");
 const formElementProfile = document.querySelector("#popup_profile");
@@ -21,6 +22,8 @@ formElementProfile.addEventListener('submit', handleFormSubmit);
 formElementCard.addEventListener('submit', handleCardSubmit);
 
 initialCards.forEach(card => cards.prepend(addCard(card.name, card.link)))
+nameInput.value = profileTitle.textContent;
+jobInput.value = profileSubtitle.textContent;
 
 function addCard(cardName, cardImage) {
 
@@ -44,11 +47,13 @@ function addCard(cardName, cardImage) {
 
 }
 
-function handleClosePopup() {
-    const popupElem = this.closest(".popup");
-    popupElem.classList.remove('popup_opened');
-    if (popupElem.classList.contains("popup__background_theme_dark")) { popupElem.classList.remove("popup__background_theme_dark") }
-    bodyElement.classList.remove('body__style_overflow_hidden');
+function handleClosePopup(evt) {
+
+    if (this.classList.contains("popup")) {
+        closePopupOnClick(this)
+    } else {
+        closePopupOnClick(this.closest(".popup"));
+    }
 }
 
 function handleOpenPopup() {
@@ -79,6 +84,11 @@ function handleCardSubmit(evt) {
     closePopup(this);
 }
 
+function closePopupOnClick(popupElem) {
+    popupElem.classList.remove('popup_opened');
+    if (popupElem.classList.contains("popup__background_theme_dark")) { popupElem.classList.remove("popup__background_theme_dark") }
+    bodyElement.classList.remove('body__style_overflow_hidden');
+}
 
 function openPopup(popup, props, iventItem) {
     popup.classList.add('popup_opened');
@@ -91,6 +101,9 @@ function openPopup(popup, props, iventItem) {
         const title = popup.querySelector('.popup__img-title');
         title.textContent = iventItem.alt;
     }
+
+    popup.addEventListener('click', (e) => { if (e.target.classList.contains("popup")) { closePopup(popup, props) } });
+    document.addEventListener('keydown', (e) => { if (e.code === 'Escape') { closePopup(popup, props) } });
     bodyElement.classList.add('body__style_overflow_hidden');
 }
 
@@ -98,6 +111,8 @@ function closePopup(popup, props) {
     popup.classList.remove('popup_opened');
     if (props) { popup.classList.remove(props) }
     bodyElement.classList.remove('body__style_overflow_hidden');
+    popup.removeEventListener('click', (e) => { if (e.target.classList.contains("popup")) { closePopup(popup, props) } });
+    document.removeEventListener('keydown', (e) => { if (e.code === 'Escape') { closePopup(popup, props) } });
 }
 
 function addInputsValue() {

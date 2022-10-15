@@ -1,5 +1,8 @@
 .popup__inputs {
-    grid-area: popup_input;
+    grid-area: popup_inputs;
     display: flex;
     flex-direction: column;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
