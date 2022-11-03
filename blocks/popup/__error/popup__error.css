@@ -5,4 +5,6 @@
     line-height: 15px;
     color: #FF0000;
     grid-area: popup_error;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
